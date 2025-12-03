@@ -38,8 +38,11 @@ public class GlobalHolidaySearchCondition extends PageRequestDto {
     @Size(min = 2, max = 2, message = "국가코드는 ISO 2자리 코드값으로 입력해주세요.")
     private String countryCode;
 
-	 /** 국가명 */
-	private String countryName;
+	 /** 휴일명 */
+	private String holidayName;
+	
+	 /** 현지휴일명 */
+	private String localHolidayName;
 	
     /** 조회 기준 연도 */
     @Min(value = 1999, message = "입력한 연도 정보를 다시 확인해주세요. 2000년도 이후로 검색 진행해주세요.")

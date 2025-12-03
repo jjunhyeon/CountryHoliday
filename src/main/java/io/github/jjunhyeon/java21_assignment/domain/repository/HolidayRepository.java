@@ -1,6 +1,7 @@
 package io.github.jjunhyeon.java21_assignment.domain.repository;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -17,6 +18,6 @@ import io.github.jjunhyeon.java21_assignment.domain.entity.Holiday;
 * -----------------------------------------------------------
 * 2025.11.29        KimJunHyeon      최초 생성
 */
-public interface HolidayRepository extends JpaRepository<Holiday, Long>, HolidayRepositoryCustom{
-	Holiday findByCountryCodeAndHolidayYmd(String countryCode, LocalDate holidayYmd);
+public interface HolidayRepository extends JpaRepository<Holiday, Long>, HolidayRepositoryCustom {
+	List<Holiday> findByCountryCodeAndHolidayYmd(String countryCode, LocalDate holidayYmd);
 }

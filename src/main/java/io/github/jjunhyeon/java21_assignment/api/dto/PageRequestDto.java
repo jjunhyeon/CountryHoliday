@@ -5,6 +5,7 @@ import org.springframework.data.domain.Pageable;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
 * @packageName    : io.github.jjunhyeon.java21_assignment.api.dto
@@ -19,6 +20,7 @@ import lombok.Setter;
 */
 @Getter
 @Setter
+@ToString
 public class PageRequestDto {
 	
 	/** 페이지 넘버*/
@@ -28,15 +30,9 @@ public class PageRequestDto {
     private Integer size = 10;
     
     public Pageable toPageable() {
-    	if(page == 0) {
-    		this.page  = 1;
-    	}
-    	
-    	if(this.size ==0) {
-    		this.size = 10;
-    	}
-    	return PageRequest.of(
-    			this.page != null ? this.page : 1,
-    					this.size != null ? this.size : 10);
+        // 기본값 처리
+        int pageNo = (page != null && page > 0) ? page : 1; // 1-based 유지
+        int pageSize = (size != null && size > 0) ? size : 10;
+        return PageRequest.of(pageNo - 1, pageSize);
     }
 }

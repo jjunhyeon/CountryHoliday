@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.jjunhyeon.java21_assignment.api.dto.GlobalHolidayDto;
 import io.github.jjunhyeon.java21_assignment.api.dto.request.GlobalHolidaySearchCondition;
+import io.github.jjunhyeon.java21_assignment.api.dto.response.GlobalHolidayDataResponse;
 import io.github.jjunhyeon.java21_assignment.api.dto.response.GlobalHolidayPageResponse;
 import io.github.jjunhyeon.java21_assignment.api.dto.response.PageResponse;
 import io.github.jjunhyeon.java21_assignment.domain.service.GlobalHolidayService;
@@ -43,6 +43,12 @@ public class GlobalHolidayController {
 	public ResponseEntity<GlobalHolidayPageResponse> searchGlobalHolidayByCondition(
 			@Valid GlobalHolidaySearchCondition request) {
 
+		if(request.getPage() < 1) {
+			throw new ValidationException("페이지 번호는 1이상으로 입력해주세요.");
+		} else if(request.getSize() < 1) {
+			throw new ValidationException("페이지 사이즈는 1이상으로 입력해주세요.");
+		}
+		
 		if (!request.isValidDateRange()) {
 			throw new ValidationException("기간 조건이 잘못되었습니다. 시작일자값이 종료일자보다 이후일 수 없습니다.");
 		}
@@ -51,7 +57,7 @@ public class GlobalHolidayController {
 			throw new ValidationException("공휴일 유형은 [Public, Bank, School, Observance, Optional] 중 하나로 선택해주세요.");
 		}
 
-		Page<GlobalHolidayDto> list = globalHolidayService.searchGlobalHolidayByCondition(request);
+		Page<GlobalHolidayDataResponse> list = globalHolidayService.searchGlobalHolidayByCondition(request);
 		return ResponseEntity.ok(GlobalHolidayPageResponse.builder().searchCondition(request)
 				.pageResponse(PageResponse.from(list)).data(list.getContent()).build());
 	}

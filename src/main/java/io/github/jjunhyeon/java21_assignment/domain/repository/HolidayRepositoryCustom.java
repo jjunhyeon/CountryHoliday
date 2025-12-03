@@ -1,9 +1,12 @@
 package io.github.jjunhyeon.java21_assignment.domain.repository;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 
-import io.github.jjunhyeon.java21_assignment.api.dto.GlobalHolidayDto;
 import io.github.jjunhyeon.java21_assignment.api.dto.request.GlobalHolidaySearchCondition;
+import io.github.jjunhyeon.java21_assignment.api.dto.response.GlobalHolidayDataResponse;
+import io.github.jjunhyeon.java21_assignment.domain.entity.Holiday;
 
 /**
 * @packageName    : io.github.jjunhyeon.java21_assignment.domain.repository
@@ -18,7 +21,9 @@ import io.github.jjunhyeon.java21_assignment.api.dto.request.GlobalHolidaySearch
 */
 public interface HolidayRepositoryCustom {
 
-	Page<GlobalHolidayDto> searchGlobalHolidayByCondition(GlobalHolidaySearchCondition condition);
+	Page<GlobalHolidayDataResponse> searchGlobalHolidayByCondition(GlobalHolidaySearchCondition condition);
+	
+	List<Holiday> findByCountryCodeAndYear(String countryCode, Integer Year);
 	
 	long deleteAllByCountryCodeAndYear(String countryCode, Integer Year);
 }

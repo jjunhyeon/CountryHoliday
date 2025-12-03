@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
-import io.github.jjunhyeon.java21_assignment.api.dto.GlobalHolidayDto;
 import io.github.jjunhyeon.java21_assignment.api.dto.request.GlobalHolidaySearchCondition;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,7 +24,7 @@ import lombok.Getter;
 public class GlobalHolidayPageResponse {
 
 	/** 실제 데이터 */ 
-	private List<GlobalHolidayDto> data;
+	private List<GlobalHolidayDataResponse> data;
 	
 	/** 검색조건 정보 */ 
 	private GlobalHolidaySearchCondition searchCondition;
@@ -33,7 +32,7 @@ public class GlobalHolidayPageResponse {
 	/** 페이지 응답정보 */ 
 	private PageResponse pageResponse;
 	
-	public static GlobalHolidayPageResponse from(Page<GlobalHolidayDto> page, GlobalHolidaySearchCondition request) {
+	public static GlobalHolidayPageResponse from(Page<GlobalHolidayDataResponse> page, GlobalHolidaySearchCondition request) {
 		return GlobalHolidayPageResponse.builder()
 				.searchCondition(request)
 				.pageResponse(PageResponse.from(page))

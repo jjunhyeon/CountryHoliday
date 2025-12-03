@@ -20,11 +20,11 @@ public class QHoliday extends EntityPathBase<Holiday> {
 
     public static final QHoliday holiday = new QHoliday("holiday");
 
-    public final ListPath<String, StringPath> counties = this.<String, StringPath>createList("counties", String.class, StringPath.class, PathInits.DIRECT2);
+    public final ListPath<HolidayCounty, QHolidayCounty> counties = this.<HolidayCounty, QHolidayCounty>createList("counties", HolidayCounty.class, QHolidayCounty.class, PathInits.DIRECT2);
 
     public final StringPath countryCode = createString("countryCode");
 
-    public final StringPath countryName = createString("countryName");
+    public final StringPath holidayName = createString("holidayName");
 
     public final NumberPath<Long> holidaySn = createNumber("holidaySn", Long.class);
 
@@ -38,11 +38,11 @@ public class QHoliday extends EntityPathBase<Holiday> {
 
     public final StringPath localHolidayName = createString("localHolidayName");
 
-    public final DatePath<java.util.Date> regDate = createDate("regDate", java.util.Date.class);
+    public final DateTimePath<java.time.LocalDateTime> regDate = createDateTime("regDate", java.time.LocalDateTime.class);
 
-    public final ListPath<String, StringPath> types = this.<String, StringPath>createList("types", String.class, StringPath.class, PathInits.DIRECT2);
+    public final ListPath<HolidayType, QHolidayType> types = this.<HolidayType, QHolidayType>createList("types", HolidayType.class, QHolidayType.class, PathInits.DIRECT2);
 
-    public final DatePath<java.util.Date> updateDate = createDate("updateDate", java.util.Date.class);
+    public final DateTimePath<java.time.LocalDateTime> updateDate = createDateTime("updateDate", java.time.LocalDateTime.class);
 
     public QHoliday(String variable) {
         super(Holiday.class, forVariable(variable));

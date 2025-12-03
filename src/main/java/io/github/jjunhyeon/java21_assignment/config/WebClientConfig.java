@@ -19,12 +19,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 public class WebClientConfig {
 	
 	/**
-	 * WebClient.Builder Bean 생성
-	 * 외부에서 Bean을 재사용하기 위함
-	 * @return WebClient.Builder 
+	 * 국가목록 API 
 	 */
-	@Bean
-	public WebClient.Builder webClientBuilder() {
-		return WebClient.builder();
-	}
+    @Bean
+    public WebClient webClient(WebClient.Builder builder) {
+        return builder
+                .baseUrl("https://date.nager.at/api/v3")
+                .build();
+    }
+    
 }
