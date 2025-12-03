@@ -29,7 +29,7 @@ BASH - [./gradlew build]
 <br>
 <br>
 
-## REST API 명세 요약
+## 3. REST API 명세 요약
 - swagger 참고 부탁드립니다.
 
 
