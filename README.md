@@ -1,14 +1,9 @@
-# CountryHoliday
-국가별 공휴일 API 내용 
-
-<br>
 
 ## 1. 프로젝트 개요 및 환경
-: 이 프로젝트는 Gradle 기반의 Spring Boot 3.x 애플리케이션이며, 전역 휴일 데이터를 조회하기 위한 REST API를 제공합니다.
-- 항목내용언어 Java 21
+- 언어 Java 21
 - 프레임워크 Spring Boot 3.4
 - 빌드 도구 Gradle
-- DBH2 Database
+- DB H2 Database
 
 <br>
 <br>
@@ -32,6 +27,8 @@ BASH - [./gradlew build]
 ## 3. REST API 명세 요약
 - swagger 참고 부탁드립니다.
 
+<br>
+<br>
 
 ## 4. ./gradlew clean test 성공 스크린샷
 ![image](https://github.com/user-attachments/assets/65449fec-5381-416a-ab39-b46817e9f24c)
