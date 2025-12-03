@@ -10,15 +10,11 @@
 
 ## 2. 빌드 및 실행 방법
 
-1. 프로젝트 클론 
-1. git clone [원격 저장소 URL]
+1. IDE에서 프로젝트 클론 또는 BASH 환경에서 git clone [원격 저장소 URL] 
 2. cd [프로젝트 폴더명]
-
-2. 빌드 : 프로젝트 루트 
-BASH - [./gradlew build]
-
-3. 실행
-3-1. IDE 에서 BOOT DASHBOARD 실행
+3. 빌드 : IDE 직접 GUIT GRADLE BUILD 수행 / BASH - [./gradlew build]
+4. 실행
+3-1. IDE 에서 BOOT DASHBOARD에서 선택 실행
 3-2  BASH 환경에서 ./gradlew bootRun
 
 <br>
