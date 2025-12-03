@@ -26,11 +26,13 @@ BASH - [./gradlew build]
 3-1. IDE 에서 BOOT DASHBOARD 실행
 3-2  BASH 환경에서 ./gradlew bootRun
 
-4. REST API 명세 요약
+<br>
+<br>
+
+## REST API 명세 요약
 - swagger 참고 부탁드립니다.
 
-## 3. 설계한 REST API 명세 요약
-  실행 후 스웨거 참고부탁드립니다.
 
 ## 4. ./gradlew clean test 성공 스크린샷
-  ![Uploading gradlew clean test 성공.png…]()
+![image](https://github.com/user-attachments/assets/65449fec-5381-416a-ab39-b46817e9f24c)
+
