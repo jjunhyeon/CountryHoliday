@@ -3,6 +3,7 @@ package io.github.jjunhyeon.java21_assignment.api.dto;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -24,9 +25,11 @@ import lombok.ToString;
 public class PageRequestDto {
 	
 	/** 페이지 넘버*/
+	@Schema(description = "페이징 번호", example = "1")
     private Integer page = 1;
     
     /** 조회할 페이즈 사이즈 */
+	@Schema(description = "페이징 사이즈", example = "10")
     private Integer size = 10;
     
     public Pageable toPageable() {

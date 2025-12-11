@@ -81,7 +81,7 @@ public class GlobalHolidayDto {
 			List<HolidayType> holidayType = this.types.stream().map(typeStr -> {
 				HolidayType ht = new HolidayType();
 				ht.setType(typeStr);
-				ht.setHoliday(entity); // 부모 설정
+				ht.setHoliday(entity);
 				return ht;
 			}).toList();
 			entity.setTypes(holidayType);
